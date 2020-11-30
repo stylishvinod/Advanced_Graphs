@@ -42,6 +42,15 @@ const bfs = (start, list, visited) => {
     
 }
 
+const dfs = (head, graph, visited) => {
+    visited[head] = 1;
+    const neighbours = graph[head];
+    for(let nei of neighbours) {
+        if(!visited[nei]) {
+         dfs(nei, graph, visited);
+        }
+    }
+}
 
 const buildAdjList = (n, edges) => {
     let adjList = new Array(n).fill(null).map(a => []);
